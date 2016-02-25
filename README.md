@@ -6,3 +6,6 @@ iPhone Project with swift:
 
  * Removing Storyboard
  * Init with nib for view controller
+ * Adding tableview
+ * Registering class with `classForCoder()`
+ * Adding tableview delegate
