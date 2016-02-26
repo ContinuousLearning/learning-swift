@@ -13,5 +13,5 @@ iPhone Project with swift:
 ## Day Two
 Trying Request
 
-* 123
-* 	
+* URL with string
+* 
