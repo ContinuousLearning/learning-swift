@@ -14,4 +14,6 @@ iPhone Project with swift:
 Trying Request
 
 * URL with string
+* Playground cannot make request
+* Block
 * 
