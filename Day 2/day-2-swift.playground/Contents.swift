@@ -7,15 +7,18 @@ print("Hello, World!")
 func openRequest(searchTerm: String!){
     let url = NSURL(string: "https://itunes.apple.com/search?term=\(searchTerm)&media=software")
     let request = NSURLRequest(URL: url!)
-    let config = NSURLSessionConfiguration.defaultSessionConfiguration()
-    let session = NSURLSession(configuration: config)
+    let session = NSURLSession.sharedSession()
     
     let task = session.dataTaskWithRequest(request, completionHandler: {(data, response, error) in
         
-        // notice that I can omit the types of data, response and error
-        
+        do{
+            let jsonBlob = try NSJSONSerialization.JSONObjectWithData(data!, options: NSJSONReadingOptions.AllowFragments)
+            print(jsonBlob);
+        }catch _ {
+            
+        }
         // your code
-        print(data);
+        
         
     });
     
