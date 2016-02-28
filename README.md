@@ -22,3 +22,4 @@ Implementing [PokemonKit](https://github.com/darkcl/PokemonKit) a wrapper class 
 
 * Writing closeure, block in swift `public func fetchBerryList(completion: (result: NSArray) -> Void, failure: (error: NSError) -> Void)`
 * Define dictionary `[NSLocalizedDescriptionKey: "Berry List Error"]`
+* Tools for mapping objects [Link](https://github.com/cemolcay/DeserializableSwiftGenerator)
