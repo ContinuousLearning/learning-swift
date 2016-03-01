@@ -23,3 +23,24 @@ Implementing [PokemonKit](https://github.com/darkcl/PokemonKit) a wrapper class 
 * Writing closeure, block in swift `public func fetchBerryList(completion: (result: NSArray) -> Void, failure: (error: NSError) -> Void)`
 * Define dictionary `[NSLocalizedDescriptionKey: "Berry List Error"]`
 * Tools for mapping objects [Link](https://github.com/cemolcay/DeserializableSwiftGenerator)
+* 
+## Day Four
+Trying PromiseKit
+
+* Write a promise
+
+```swift
+public func fetchBerryList() -> Promise<[PKMBaseObject]>{
+    return Promise { fulfill, reject in
+        let URL = baseURL + "/berry"
+        
+        Alamofire.request(.GET, URL).responseArray { (response: Response<[PKMBaseObject], NSError>) in
+            if (response.result.isSuccess) {
+                fulfill(response.result.value!)
+            }else{
+                reject(response.result.error!)
+            }
+        }
+    };
+}
+```
