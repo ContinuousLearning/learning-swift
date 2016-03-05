@@ -44,3 +44,24 @@ public func fetchBerryList() -> Promise<[PKMBaseObject]>{
     };
 }
 ```
+## Day 5
+
+* Writing test case with swift
+* Testing asnc calls
+
+```swift
+let asyncExpectation = expectationWithDescription("Fetch berries")
+        
+PokemonKit.fetchBerryList()
+    .then { response in
+        
+        asyncExpectation.fulfill()
+    }
+    .error{ err in
+        XCTFail("Should not failed with \(err)")
+    }
+
+self.waitForExpectationsWithTimeout(30) { (err) -> Void in
+    XCTAssertNil(err, "Something went wrong")
+}
+```
