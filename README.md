@@ -65,3 +65,14 @@ self.waitForExpectationsWithTimeout(30) { (err) -> Void in
     XCTAssertNil(err, "Something went wrong")
 }
 ```
+
+## Day 6
+
+* Fixing missing closure for AnyPromise
+
+```swift
+PokemonKit.fetchBerry("1")
+    .then { response  -> Void in // this is the fix (-> Void in)
+    
+    ...continue...
+```
