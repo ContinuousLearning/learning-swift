@@ -104,3 +104,22 @@ func loadCssJs() {
     }
 }
 ```
+
+For-in loop
+
+```swift
+for dict in jsResult{
+    result.append(CSSModel(infoDict: dict as! [String : AnyObject]))
+}
+```
+
+Init functions
+
+```swift
+convenience init(infoDict:[String: AnyObject]!) {
+    self.init()
+    
+    rules = infoDict["rules"]! as? [AnyObject]
+    selector = infoDict["selector"]! as? String
+}
+```
