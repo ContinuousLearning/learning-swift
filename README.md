@@ -1,7 +1,7 @@
 # Learing swift
 Try to make something everyday with swift.
 
-iPhone Project with swift:
+## iPhone Project with swift:
 
  * Removing Storyboard
  * Init with nib for view controller
@@ -9,19 +9,19 @@ iPhone Project with swift:
  * Registering class with `classForCoder()`
  * Adding tableview delegate
 
-Trying Request
+## Trying Request
 
 * URL with string
 * Playground cannot make request
 * Block
 
-Implementing [PokemonKit](https://github.com/darkcl/PokemonKit) a wrapper class of Pokeapi-v2 written in swift
+## Implementing [PokemonKit](https://github.com/darkcl/PokemonKit) a wrapper class of Pokeapi-v2 written in swift
 
 * Writing closeure, block in swift `public func fetchBerryList(completion: (result: NSArray) -> Void, failure: (error: NSError) -> Void)`
 * Define dictionary `[NSLocalizedDescriptionKey: "Berry List Error"]`
 * Tools for mapping objects [Link](https://github.com/cemolcay/DeserializableSwiftGenerator)
 
-Trying PromiseKit
+## Trying PromiseKit
 
 * Write a promise
 
@@ -68,4 +68,39 @@ PokemonKit.fetchBerry("1")
     .then { response  -> Void in // this is the fix (-> Void in)
     
     ...continue...
+```
+
+## Loading cocoapods library bundle resources
+
+Add Resource path in podspec
+```ruby
+  s.resource_bundles = {
+    'CSSwift' => ['Pod/Assets/*.js']
+  }
+```
+
+Load it with NSBundle
+```swift
+func loadCssJs() {
+    cssJs = JSContext()
+    let podBundle = NSBundle(forClass: self.classForCoder)
+    
+    if let bundleURL = podBundle.URLForResource("CSSwift", withExtension: "bundle") {
+        
+        if let bundle = NSBundle(URL: bundleURL) {
+            
+            let cssJsPath = bundle.pathForResource("css", ofType: "js")
+            do{
+                let content = try String(contentsOfFile: cssJsPath!)
+                cssJs.evaluateScript(content)
+            }
+            catch {}
+        }else {
+            assertionFailure("Could not load the bundle")
+        }
+        
+    }else {
+        assertionFailure("Could not create a path to the bundle")
+    }
+}
 ```
