@@ -123,3 +123,10 @@ convenience init(infoDict:[String: AnyObject]!) {
     selector = infoDict["selector"]! as? String
 }
 ```
+
+Adding variable in JavascriptCore
+
+```swift
+cssJs.setObject(cssString, forKeyedSubscript: "cssValue")
+// don't use cssJs.evaluateScript("var cssString = '\(cssString)';"), line break will not work
+```
