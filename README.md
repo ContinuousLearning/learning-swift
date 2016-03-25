@@ -130,3 +130,13 @@ Adding variable in JavascriptCore
 cssJs.setObject(cssString, forKeyedSubscript: "cssValue")
 // don't use cssJs.evaluateScript("var cssString = '\(cssString)';"), line break will not work
 ```
+
+Checking platform
+
+```swift
+#if os(iOS)
+    import CSSwiftiOS
+#else
+    import CSSwift
+#endif
+```
