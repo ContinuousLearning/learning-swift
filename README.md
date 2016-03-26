@@ -140,3 +140,18 @@ Checking platform
     import CSSwift
 #endif
 ```
+
+isEquals in Swift
+```swift
+// Useful when compare arrays of objects
+
+override public func isEqual(object: AnyObject?) -> Bool {
+    guard let rhs = object as? CSSRuleModel else {
+        return false
+    }
+    let lhs = self
+    
+    return (lhs.ruleName == rhs.ruleName &&
+        lhs.ruleContent == rhs.ruleContent)
+}
+```
