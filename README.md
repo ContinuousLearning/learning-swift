@@ -155,3 +155,31 @@ override public func isEqual(object: AnyObject?) -> Bool {
         lhs.ruleContent == rhs.ruleContent)
 }
 ```
+
+Assoicate Object
+
+```swift
+private struct AssociatedKeys {
+    static var CSSisUrlAssociationKey :UInt8 = 0
+}
+
+public var isUrl: Bool! {
+    get {
+        guard let result = objc_getAssociatedObject(self, &AssociatedKeys.CSSisUrlAssociationKey) as? Bool else{
+            return false
+        }
+        return result
+    }
+    
+    set {
+        if let newValue = newValue {
+            objc_setAssociatedObject(
+                self,
+                &AssociatedKeys.CSSisUrlAssociationKey,
+                newValue,
+                .OBJC_ASSOCIATION_RETAIN_NONATOMIC
+            )
+        }
+    }
+}
+```
