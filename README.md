@@ -183,3 +183,7 @@ public var isUrl: Bool! {
     }
 }
 ```
+
+## Day X
+
+Fuck Swift, I am going back to Objective-C
